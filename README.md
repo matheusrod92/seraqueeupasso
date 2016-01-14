@@ -1,7 +1,7 @@
 # Será que eu passo?
 Uma aplicação feita para ajudar os ingressantes da Universidade Federal do ABC a:
-> Verificar se sua nota é suficiente para passar em alguma chamada dos anos anteriores
-> Calcular a sua média ponderada de acordo com o curso escolhido
+- Verificar se sua nota é suficiente para passar em alguma chamada dos anos anteriores
+- Calcular a sua média ponderada de acordo com o curso escolhido
 
 ## Especificações:
 1. HTML/CSS
