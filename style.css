@@ -1,18 +1,28 @@
 body {
-  background: #7f8c8d;
+  background: #fff !important;
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 11pt;
   font-weight: 300;
   color: #6c6c6c;
 }
 
-.container {
-  padding-top: 20px;
-  background: rgba(255, 255, 255, .40);
-  height: 100%;
+#header-featured {
+  background-image: url(banner.jpg) !important;
 }
 
-footer {
-  padding: 10px 0;
-  float: right;
+.wrapper {
+  padding-top: 20px;
+}
+
+#copyright {
+  background: #2b2b2b;  
+}
+
+#copyright span {
+  color: #2b2b2b;
+}
+
+#copyright span > a {
+  color: #2b2b2b;
+  text-decoration: none;
 }
