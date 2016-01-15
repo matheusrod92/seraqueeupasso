@@ -67,7 +67,13 @@ if(isset($_POST["campus"]) && isset($_POST["turno"]) && isset($_POST["curso"]) &
       if($nota > $row['corte']){
         $foiChamado = true;
         $passou = true;
-        $msg .= "<p>Em <strong>" . $i . "</strong> você seria aprovado na " . $row['chamada'] . "ª chamada</p>";
+        if(($i == 2013 || $i == 2014) && $row['chamada'] > 2){
+          $msg .= "<p>Em <strong>" . $i . "</strong> você seria aprovado na " . ($row['chamada'] - 2) . "ª chamada da lista de espera</p>";
+        } else if ($i == 2015 && $row['chamada'] > 1) {
+          $msg .= "<p>Em <strong>" . $i . "</strong> você seria aprovado na " . ($row['chamada'] - 1) . "ª chamada da lista de espera</p>";
+        } else {
+          $msg .= "<p>Em <strong>" . $i . "</strong> você seria aprovado na " . $row['chamada'] . "ª chamada do SISU</p>";
+        }
         break;
       }
     }
@@ -86,7 +92,7 @@ if(isset($_POST["campus"]) && isset($_POST["turno"]) && isset($_POST["curso"]) &
       <ul>
         <li><a href="http://www.ufabchelp.me" accesskey="1" title="">Principal</a></li>
         <li><a href="http://www.ufabchelp.me/avaliacoes" accesskey="2" title="">Avaliações</a></li>
-        <li class="current_page_item"><a href="http://www.ufabchelp.me/seraqueeupasso" accesskey="3" title="" target="_blank">Será que eu passo?</a></li>
+        <li class="current_page_item"><a href="http://www.ufabchelp.me/lab/seraqueeupasso" accesskey="3" title="">Será que eu passo?</a></li>
         <li><a href="http://www.ufabchelp.me/lab" accesskey="4" title="">Help LAB</a></li>
         <li><a href="http://www.ufabchelp.me/contato" accesskey="5" title="">Contato</a></li>
       </ul>
@@ -148,7 +154,7 @@ if(isset($_POST["campus"]) && isset($_POST["turno"]) && isset($_POST["curso"]) &
         </div>
         <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
           <div class="panel-body">
-            <form action="/" method="post">
+            <form action="/lab/seraqueeupasso" method="post">
               <div class="form-group">
                 <label for="Campus">Campus*:</label>
                 <div class="radio"><label><input type="radio" name="campus" value="sa" checked>Santo André</label></div>
@@ -190,7 +196,7 @@ if(isset($_POST["campus"]) && isset($_POST["turno"]) && isset($_POST["curso"]) &
         </div>
         <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
           <div class="panel-body">
-            <form action="/" method="post">
+            <form action="/lab/seraqueeupasso" method="post">
               <div class="form-group">
                 <label for="Curso">Curso:</label>
                 <div class="radio"><label><input type="radio" name="curso" value="bct" checked>BC&T</label></div>
