@@ -29,19 +29,17 @@ $mostraNota = false;
 $reprovado = false;
 $resultado = false;
 $passou = false;
-
 //variaveis segundo form
 if(isset($_POST["curso"]) && isset($_POST["mat"]) && isset($_POST["nat"]) && isset($_POST["hum"]) && isset($_POST["lin"]) && isset($_POST["red"])){
   if($_POST["mat"] < 450 || $_POST["nat"] < 450 || $_POST["hum"] < 450 || $_POST["lin"] < 450 || $_POST["red"] < 450)
     $reprovado = true;
-	else {
+  else {
     $curso = $_POST["curso"];
     $mostraNota = true;
-  	if($curso == "bct") $nota = (1.5*$_POST["mat"] + 1.5*$_POST["nat"] + $_POST["hum"] + $_POST["lin"] + $_POST["red"]) / 6;
-  	else if($curso == "bch") $nota = ($_POST["mat"] + $_POST["nat"] + 1.5*$_POST["hum"] + 1.5*$_POST["lin"] + $_POST["red"]) / 6;
+    if($curso == "bct") $nota = (1.5*$_POST["mat"] + 1.5*$_POST["nat"] + $_POST["hum"] + $_POST["lin"] + $_POST["red"]) / 6;
+    else if($curso == "bch") $nota = ($_POST["mat"] + $_POST["nat"] + 1.5*$_POST["hum"] + 1.5*$_POST["lin"] + $_POST["red"]) / 6;
   }
 }
-
 //Logica para verificar se aluno está aprovado ou nao
 if(isset($_POST["campus"]) && isset($_POST["turno"]) && isset($_POST["curso"]) && isset($_POST["nota"])){
   //inicializa variaveis do primeiro form
@@ -78,7 +76,6 @@ if(isset($_POST["campus"]) && isset($_POST["turno"]) && isset($_POST["curso"]) &
   //fecha bd
   $db->close();
 }
-
 ?>
 <div id="header-wrapper">
   <div id="header" class="container">
@@ -119,18 +116,18 @@ if(isset($_POST["campus"]) && isset($_POST["turno"]) && isset($_POST["curso"]) &
         no <a href="https://www.facebook.com/groups/1077941312230492/?fref=ts" target="_blank">grupo dos bixos no facebook</a>.</p>
       <?php else: ?>
         <p>Infelizmente você não foi aprovado em nenhuma chamada <i class="fa fa-frown-o"></i>...</p>
-        <p>Mas <strong>não desista</strong>, continue estudando que poderemos nos ver aqui nos próximos anos. Caso tenha alguma dúvida é só entrar no 
+        <p>Continue acompanhando o resultado oficial no site do Sisu. E se caso não der certo desta vez, <strong>não desista</strong>, continue estudando que poderemos nos ver aqui nos próximos anos. Caso tenha alguma dúvida é só entrar no 
         <a href="https://www.facebook.com/groups/ufabc/" target="_blank">grupo do facebook</a> e conversar com a galera! Aproveita e da 
         uma olhadinha no cursinho ministrado pelos alunos: <a href="http://www.epufabc.com.br/" target="_blank">EPUFABC</a>.</p>
       <?php endif; ?>
     </div>
-	<?php endif; ?>
+  <?php endif; ?>
 
   <?php if($mostraNota): ?>
     <div class="alert alert-info alert-dismissible" role="alert">
-  	  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-  	  Sua nota é: <strong><?php echo isset($nota)?$nota:""; ?></strong>.
-  	</div>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      Sua nota é: <strong><?php echo isset($nota)?$nota:""; ?></strong>.
+    </div>
   <?php endif; ?> 
   
   <?php if($reprovado): ?>
@@ -163,11 +160,11 @@ if(isset($_POST["campus"]) && isset($_POST["turno"]) && isset($_POST["curso"]) &
                 <div class="radio"><label><input type="radio" name="turno" value="not">Noturno</label></div>
               </div>
               <div class="form-group">
-              	<label for="Cotas">Cota:</label>
-              	<div class="radio"><label for="EP"><input type="radio" name="cota" value="1">Ensino Público</label></div>
-              	<div class="radio"><label for="EP PPI"><input type="radio" name="cota" value="2">Ensino Público + PPI</label></div>
-              	<div class="radio"><label for="EP R"><input type="radio" name="cota" value="3">Ensino Público + Renda</label></div>
-              	<div class="radio"><label for="EP PPI R"><input type="radio" name="cota" value="4">Ensino Público + PPI + Renda</label></div>
+                <label for="Cotas">Cota:</label>
+                <div class="radio"><label for="EP"><input type="radio" name="cota" value="1">Ensino Público</label></div>
+                <div class="radio"><label for="EP PPI"><input type="radio" name="cota" value="2">Ensino Público + PPI</label></div>
+                <div class="radio"><label for="EP R"><input type="radio" name="cota" value="3">Ensino Público + Renda</label></div>
+                <div class="radio"><label for="EP PPI R"><input type="radio" name="cota" value="4">Ensino Público + PPI + Renda</label></div>
               </div>
               <div class="form-group">
                 <label for="Curso">Curso*:</label>
